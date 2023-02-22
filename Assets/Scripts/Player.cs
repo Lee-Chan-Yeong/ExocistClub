@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         SetStat();

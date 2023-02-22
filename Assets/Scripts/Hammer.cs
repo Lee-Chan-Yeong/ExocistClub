@@ -5,9 +5,10 @@ using UnityEngine;
 public class Hammer : MonoBehaviour
 {
     public bool ChooseUsagie = false;
-    public Player player;
-    float delayTime;
-    int atkDamage;
+    Player player;
+    float delayTime= 0;
+    int atkDamage =0;
+    float waitTime;
     
 
     Animator anim;
@@ -30,14 +31,14 @@ public class Hammer : MonoBehaviour
 
     void basicAttack()
     {   
-        float atkSpeed = 1 /delayTime;
-        float waitTime = Time.deltaTime; 
-        if (waitTime == delayTime)
+        waitTime += Time.deltaTime;
+        if (waitTime >= delayTime)
         {
-            anim.SetTrigger("Attack");
             Debug.Log("슉");
+            anim.SetTrigger("Attack");
             waitTime = 0;
         }
+        
     }
 
     void OnTriggerEnter2D (Collider2D other)
