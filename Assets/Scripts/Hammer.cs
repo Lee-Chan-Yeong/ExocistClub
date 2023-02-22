@@ -10,13 +10,14 @@ public class Hammer : MonoBehaviour
     int atkDamage;
     
 
-    Transform tf;
+    Animator anim;
      
 
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponentInParent<Player>();
+        anim = GetComponent<Animator>();
         delayTime = player.playerUnitStat.defaultPlayerAtkDelay;
         atkDamage = player.playerUnitStat.defaultPlayerAtk;
     }
@@ -33,14 +34,16 @@ public class Hammer : MonoBehaviour
         float waitTime = Time.deltaTime; 
         if (waitTime == delayTime)
         {
-            transform.Rotate(Vector3.forward *atkSpeed*Time.deltaTime);
+            anim.SetTrigger("Attack");
+            Debug.Log("슉");
+            waitTime = 0;
         }
     }
 
-    void OnTriggerEnter2D (Collision2D collision)
+    void OnTriggerEnter2D (Collider2D other)
     {
-
+        Debug.Log("뿅");
     }
 
 
-}
+}  
