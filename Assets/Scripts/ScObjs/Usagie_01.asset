@@ -22,7 +22,7 @@ MonoBehaviour:
   - 300
   - 10
   - 0
-  - 0.3
+  - 1
   - 4
   - 0
   - 0
@@ -30,5 +30,3 @@ MonoBehaviour:
   - 0
   CharacterCode:
   - 10001
-  listCount: 15
-  UnitCode: 
