@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     //이후 데이터 처리를 통해 전체값을 설정합니다.
     public void SetStat() 
     {
-        for (int i = 0; i<15; i++)
+        for (int i = 0; i<playerStats.Count; i++)
         {
             if (selectCharacterCode == playerStats[i].Stats[0])
             {

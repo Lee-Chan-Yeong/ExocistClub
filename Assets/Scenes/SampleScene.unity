@@ -546,6 +546,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2086176340, guid: eb5306362468a4d4197d6348e0c92237, type: 3}
+      propertyPath: spawnData.Array.data[0].spawnTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086176340, guid: eb5306362468a4d4197d6348e0c92237, type: 3}
+      propertyPath: spawnData.Array.data[1].spawnTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086176340, guid: eb5306362468a4d4197d6348e0c92237, type: 3}
+      propertyPath: spawnData.Array.data[0].enemyMaxHp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086176340, guid: eb5306362468a4d4197d6348e0c92237, type: 3}
+      propertyPath: spawnData.Array.data[1].enemyMaxHp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086176340, guid: eb5306362468a4d4197d6348e0c92237, type: 3}
+      propertyPath: spawnData.Array.data[1].enemySpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 140449857670989841, guid: eb5306362468a4d4197d6348e0c92237, type: 3}
       propertyPath: m_Name
       value: Player
