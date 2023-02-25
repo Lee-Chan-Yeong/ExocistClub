@@ -38,10 +38,12 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemy = GameManager.instance.pool.Get(Random.Range(0,2));
         enemy.transform.position = spawnPoint[Random.Range(1,spawnPoint.Length)].position;
         enemy.GetComponent<Enemy>().Init(spawnData[level]);
+        //enemy.AddComponent
+        Debug.Log(spawnData[level].enemyMaxHp);
     }
 }
 
- [System.Serializable]
+[System.Serializable]
 public class SpawnData
 {
     //여기에서 스프레드시트를 연동
