@@ -9,7 +9,8 @@ public class EnemySpawner : MonoBehaviour
 
     public Transform[] spawnPoint;
    
-    public SpawnData[] spawnData;
+    //EnemyTable 자체를 불러와서 리스트를 사용하기
+    public EnemyTable[] spawnData;
 
     int level;
     float timer;
@@ -25,31 +26,22 @@ public class EnemySpawner : MonoBehaviour
         //레벨 정보는 게임 타임에 맞춰서 다음 셀을 가져오는 방식?, level 변수를 index에 넣으면 될듯
         level = Mathf.Min(Mathf.FloorToInt(GameManager.instance.gameTime / 10f), spawnData.Length-1);
         
-        if (timer > (spawnData[level].spawnTime))
+        if (timer > (spawnData[level].enmSpawnTime)) // enmSpawnTime은 이후 웨이브 데이터에서 받아오는걸로 패치
         {
             timer = 0;
-            EnemySpawn(); 
+            EnemySpawn();
         }
     }
 
     void EnemySpawn()
     {
         //위와 같이 index를 변경해서 enemykind를 변경함
-        GameObject enemy = GameManager.instance.pool.Get(Random.Range(0,2));
+        GameObject enemy = GameManager.instance.pool.Get((int)spawnData[level].enmSpriteType);
         enemy.transform.position = spawnPoint[Random.Range(1,spawnPoint.Length)].position;
         enemy.GetComponent<Enemy>().Init(spawnData[level]);
         //enemy.AddComponent
-        Debug.Log(spawnData[level].enemyMaxHp);
+        Debug.Log(spawnData[level].enmMaxHp);
+        Debug.Log(level);
     }
 }
 
-[System.Serializable]
-public class SpawnData
-{
-    //여기에서 스프레드시트를 연동
-    public string enemyCode;
-    public int spriteType;
-    public float spawnTime;
-    public int enemyMaxHp;
-    public float enemySpeed;
-}

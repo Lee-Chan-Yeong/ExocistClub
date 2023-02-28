@@ -43,5 +43,28 @@ public class SklTable
 [System.Serializable]
 public class EnemyTable
 {
-    
+    //각 변수는 이후 스크립터블 오브젝트로 옮겨 담을 예정.
+    public string enmKeyNum; // enm의 고유키
+    public EnumSpriteType enmSpriteType; // enmSpriteType으로 변경
+    public string enmName; // enm 이름
+    public int enmAtk;
+    public int enmMaxHp;
+    public float enmSpeed;
+    public string enmType;
+    public string ExpType;
+    public int dropBoxCount;
+    public string enmDescription;
+    public float enmSpawnTime; //spawnTime은 이후 별도의 웨이브 밸런스 디자인에서 다루기로해요 ~
+
+    public List<ScriptableObject> gr_TypeEnms;
+    public List<ScriptableObject> blu_TypeEnms;
+    public List<ScriptableObject> ye_TypeEnms;
+    public List<ScriptableObject> rd_TypeEnms;
+    public List<ScriptableObject> blk_TypeEnms;
 }
+
+public enum EnumSpriteType
+{
+    A,B
+}
+

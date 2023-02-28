@@ -20,7 +20,7 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public GameObject Get(int index)
+    public GameObject Get(int index) // 이후 enmEnum을 만들어서 index를 반환시키는 게 좋을듯?
     {
         GameObject select = null;
 
