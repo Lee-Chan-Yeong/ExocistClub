@@ -607,7 +607,7 @@ MonoBehaviour:
   ChooseUsagie: 0
 --- !u!95 &1470726249
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -624,7 +624,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1532778264
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,14 +878,14 @@ MonoBehaviour:
   spawnData:
   - enemyCode: A
     spriteType: 0
-    spawnTime: 0.7
-    enemyMaxHp: 0
+    spawnTime: 3
+    enemyMaxHp: 100
     enemySpeed: 1.5
   - enemyCode: B
     spriteType: 1
-    spawnTime: 0.2
-    enemyMaxHp: 0
-    enemySpeed: 2.4
+    spawnTime: 2
+    enemyMaxHp: 100
+    enemySpeed: 2
 --- !u!1 &2087447316
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,8 +996,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.058072258, g: 0.6875084, b: 0.8207547, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 69dd642a581d7fa41a0b30aac8769ced, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1020,8 +1020,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: -0.2528097}
+  m_Size: {x: 1, y: 2.505623}
   m_Direction: 0
 --- !u!50 &140449857670989844
 Rigidbody2D:
