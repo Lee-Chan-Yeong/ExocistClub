@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 {
     public Vector2 inputVec;
     Rigidbody2D rigid;
+    Animator pAnim;
+    SpriteRenderer spriteRenderer;
     //차후 PlayerStat에서 관리
     //Enterlogasdf
     public int playerSpeed;
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        pAnim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         SetStat();
     }
 
@@ -36,11 +40,22 @@ public class Player : MonoBehaviour
     {
         Vector2 movVec = inputVec * playerSpeed * Time.deltaTime;
         rigid.MovePosition(rigid.position + movVec);
+
     }
 
     void OnMove(InputValue value)
     {
         inputVec = value.Get<Vector2>();
+    }
+
+    void LateUpdate()
+    {
+        pAnim.SetFloat("pSpeed", inputVec.magnitude);
+
+        if (inputVec.x != 0)
+        {
+            spriteRenderer.flipX = inputVec.x < 0;
+        }
     }
     
     //플레이어가 선택한 캐릭터에 따라 기본 스탯을 정의합니다.
