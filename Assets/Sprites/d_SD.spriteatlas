@@ -20,7 +20,19 @@ SpriteAtlas:
       readable: 0
       crunchedCompression: 0
       sRGB: 1
-    platformSettings: []
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
       padding: 4
@@ -44,11 +56,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 77684419405566342bf047e329c50177, type: 3}
   - {fileID: 21300000, guid: 32f25b0b19331b3449c4cb95d018f3f3, type: 3}
   m_PackedSpriteNamesToIndex:
-  - WalkingLeft_1
-  - WalkingRight_1
-  - WalkingRight_2
-  - Standing_0
-  - WalkingLeft_2
+  - d_WalkingLeft_1
+  - d_WalkingRight_1
+  - d_WalkingRight_2
+  - d_Standing_0
+  - d_WalkingLeft_2
   m_RenderDataMap: {}
   m_Tag: d_SD
   m_IsVariant: 0
