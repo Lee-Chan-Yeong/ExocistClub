@@ -41,7 +41,6 @@ public class EnemySpawner : MonoBehaviour
         enemy.GetComponent<Enemy>().Init(spawnData[level]);
         //enemy.AddComponent
         Debug.Log(spawnData[level].enmMaxHp);
-        Debug.Log(level);
     }
 }
 

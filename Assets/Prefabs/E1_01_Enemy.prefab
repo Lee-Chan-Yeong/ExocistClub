@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8317941268991378648}
   m_Layer: 0
   m_Name: E1_01_Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 2
+  enmCurHp: 0
+  enemyMaxHp: 0
+  enmAtk: 0
   target: {fileID: 0}
   isEnemyDead: 0
 --- !u!61 &8317941268991378648

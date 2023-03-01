@@ -45,7 +45,7 @@ public class EnemyTable
 {
     //각 변수는 이후 스크립터블 오브젝트로 옮겨 담을 예정.
     public string enmKeyNum; // enm의 고유키
-    public EnumSpriteType enmSpriteType; // enmSpriteType으로 변경
+    public EnmSpriteType enmSpriteType; // enmSpriteType으로 변경
     public string enmName; // enm 이름
     public int enmAtk;
     public int enmMaxHp;
@@ -63,7 +63,7 @@ public class EnemyTable
     public List<ScriptableObject> blk_TypeEnms;
 }
 
-public enum EnumSpriteType
+public enum EnmSpriteType
 {
     A,B
 }

@@ -13,10 +13,14 @@ public class Hammer : MonoBehaviour
     float waitTime;
     //기본공격의 애니메이션 속도
     float ubasicAttackSpeed;
+    float atkDir = 0.1f;
     
 
     Animator anim;
     Collider2D AtkCol;
+    SpriteRenderer spriteRenderer;
+    
+    
      
 
     // Start is called before the first frame update
@@ -25,6 +29,7 @@ public class Hammer : MonoBehaviour
         player = GetComponentInParent<Player>();
         anim = GetComponent<Animator>();
         AtkCol = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         AtkCol.enabled = false;
         
         delayTime = player.playerUnitStat.defaultPlayerAtkDelay;
@@ -39,12 +44,23 @@ public class Hammer : MonoBehaviour
 
     void ubasicAttack()
     {   
+        if (player.inputVec.x > 0)
+        { 
+            atkDir = 1f;
+        }
+        else if (player.inputVec.x < 0)
+        {
+            atkDir = -1f;
+        }
+
         waitTime += Time.deltaTime;
         if (waitTime >= delayTime)
         {
             Debug.Log("슉");
+            anim.SetFloat("AtkDir", atkDir);
             anim.SetTrigger("Attack");
             StartCoroutine(uBasicAtkEnabled());
+           // anim.SetTrigger("Attack");
             waitTime = 0;
         }
         
@@ -53,10 +69,20 @@ public class Hammer : MonoBehaviour
     void OnTriggerEnter2D (Collider2D other)
     {
         Debug.Log("뿅");
+        if (other.gameObject.tag == "enemy")
+        {
+            Enemy target = other.gameObject.GetComponent<Enemy>();
+            atkDamage = player.playerUnitStat.defaultPlayerAtk;
+            target.enmCurHp -= atkDamage;
+            Debug.Log(atkDamage);
+            Debug.Log(target.enmCurHp);
+            target.checkEnmDead();
+        }
     }
 
     IEnumerator uBasicAtkEnabled()
     {
+        
         AtkCol.enabled = true;
         yield return new WaitForSeconds(0.3f);
         AtkCol.enabled = false;
