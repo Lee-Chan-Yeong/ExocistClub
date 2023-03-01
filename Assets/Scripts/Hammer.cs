@@ -17,6 +17,8 @@ public class Hammer : MonoBehaviour
 
     Animator anim;
     Collider2D AtkCol;
+    SpriteRenderer spriteRenderer;
+    
      
 
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class Hammer : MonoBehaviour
         player = GetComponentInParent<Player>();
         anim = GetComponent<Animator>();
         AtkCol = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         AtkCol.enabled = false;
         
         delayTime = player.playerUnitStat.defaultPlayerAtkDelay;
@@ -39,6 +42,15 @@ public class Hammer : MonoBehaviour
 
     void ubasicAttack()
     {   
+        //때리는 도중에 방향이 바뀌어버림ㄷㄷ
+        if (player.inputVec.x > 0)
+            {
+                anim.SetFloat("InputValue", 0f);
+            }
+        else if (player.inputVec.x < 0)
+            {
+                anim.SetFloat("InputValue", -1f);
+            }
         waitTime += Time.deltaTime;
         if (waitTime >= delayTime)
         {
