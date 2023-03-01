@@ -13,6 +13,7 @@ public class Hammer : MonoBehaviour
     float waitTime;
     //기본공격의 애니메이션 속도
     float ubasicAttackSpeed;
+    float atkDir = 0.1f;
     
 
     Animator anim;
@@ -44,19 +45,21 @@ public class Hammer : MonoBehaviour
     {   
         //때리는 도중에 방향이 바뀌어버림ㄷㄷ
         if (player.inputVec.x > 0)
-            {
-                anim.SetFloat("InputValue", 0f);
-            }
+        { 
+            atkDir = 1f;
+        }
         else if (player.inputVec.x < 0)
-            {
-                anim.SetFloat("InputValue", -1f);
-            }
+        {
+            atkDir = -1f;
+        }
         waitTime += Time.deltaTime;
         if (waitTime >= delayTime)
         {
             Debug.Log("슉");
+            anim.SetFloat("AtkDir", atkDir);
             anim.SetTrigger("Attack");
             StartCoroutine(uBasicAtkEnabled());
+           // anim.SetTrigger("Attack");
             waitTime = 0;
         }
         
@@ -69,6 +72,7 @@ public class Hammer : MonoBehaviour
 
     IEnumerator uBasicAtkEnabled()
     {
+        
         AtkCol.enabled = true;
         yield return new WaitForSeconds(0.3f);
         AtkCol.enabled = false;
