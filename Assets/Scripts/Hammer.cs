@@ -20,6 +20,7 @@ public class Hammer : MonoBehaviour
     Collider2D AtkCol;
     SpriteRenderer spriteRenderer;
     
+    
      
 
     // Start is called before the first frame update
@@ -43,7 +44,6 @@ public class Hammer : MonoBehaviour
 
     void ubasicAttack()
     {   
-        //때리는 도중에 방향이 바뀌어버림ㄷㄷ
         if (player.inputVec.x > 0)
         { 
             atkDir = 1f;
@@ -52,6 +52,7 @@ public class Hammer : MonoBehaviour
         {
             atkDir = -1f;
         }
+
         waitTime += Time.deltaTime;
         if (waitTime >= delayTime)
         {
@@ -68,6 +69,15 @@ public class Hammer : MonoBehaviour
     void OnTriggerEnter2D (Collider2D other)
     {
         Debug.Log("뿅");
+        if (other.gameObject.tag == "enemy")
+        {
+            Enemy target = other.gameObject.GetComponent<Enemy>();
+            atkDamage = player.playerUnitStat.defaultPlayerAtk;
+            target.enmCurHp -= atkDamage;
+            Debug.Log(atkDamage);
+            Debug.Log(target.enmCurHp);
+            target.checkEnmDead();
+        }
     }
 
     IEnumerator uBasicAtkEnabled()

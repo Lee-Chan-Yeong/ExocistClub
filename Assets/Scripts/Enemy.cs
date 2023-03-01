@@ -62,11 +62,20 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("PlayerHit");
             Player target = collision.gameObject.GetComponent<Player>();
             target.playerUnitStat.PlayerCurHp -= enmAtk;
-            Debug.Log(target.playerUnitStat.PlayerCurHp);
+            //Debug.Log(target.playerUnitStat.PlayerCurHp);
             target.checkPlayerDead();
+        }
+    }
+
+    public void checkEnmDead()
+    {
+        Debug.Log(enmCurHp);
+        if (enmCurHp <= 0)
+        {
+            //경험치석 드랍
+            gameObject.SetActive(false);
         }
     }
 

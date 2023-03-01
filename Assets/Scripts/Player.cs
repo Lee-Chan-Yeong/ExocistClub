@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     {
         if (playerUnitStat.PlayerCurHp <= 0)
         {
-            Debug.Log("너 죽었어");
+            //Debug.Log("너 죽었어");
             Debug.Log("게임오버호출");
         }
     }
