@@ -75,6 +75,7 @@ public class Enemy : MonoBehaviour
         if (enmCurHp <= 0)
         {
             //경험치석 드랍
+            //적 처치 수 ++ , 플레이어가 우사기면 다른 변수에 ++
             gameObject.SetActive(false);
         }
     }
