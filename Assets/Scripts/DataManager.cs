@@ -50,7 +50,7 @@ public class EnemyTable
     public int enmAtk;
     public int enmMaxHp;
     public float enmSpeed;
-    public string enmType;
+    public string enmGrade;
     public string ExpType;
     public int dropBoxCount;
     public string enmDescription;
@@ -65,6 +65,6 @@ public class EnemyTable
 
 public enum EnmSpriteType
 {
-    A,B
+    gr_H1,gr_H2,gr_H3
 }
 

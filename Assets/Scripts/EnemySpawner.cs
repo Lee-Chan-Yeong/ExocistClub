@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] spawnPoint;
    
     //EnemyTable 자체를 불러와서 리스트를 사용하기
-    public EnemyTable[] spawnData;
+    public EnemyTable[] enmData;
 
     int level;
     float timer;
@@ -24,9 +24,9 @@ public class EnemySpawner : MonoBehaviour
     {
         timer += Time.deltaTime;
         //레벨 정보는 게임 타임에 맞춰서 다음 셀을 가져오는 방식?, level 변수를 index에 넣으면 될듯
-        level = Mathf.Min(Mathf.FloorToInt(GameManager.instance.gameTime / 10f), spawnData.Length-1);
+        level = Mathf.Min(Mathf.FloorToInt(GameManager.instance.gameTime / 10f), enmData.Length-1);
         
-        if (timer > (spawnData[level].enmSpawnTime)) // enmSpawnTime은 이후 웨이브 데이터에서 받아오는걸로 패치
+        if (timer > (enmData[level].enmSpawnTime)) // enmSpawnTime은 이후 웨이브 데이터에서 받아오는걸로 패치
         {
             timer = 0;
             EnemySpawn();
@@ -36,11 +36,11 @@ public class EnemySpawner : MonoBehaviour
     void EnemySpawn()
     {
         //위와 같이 index를 변경해서 enemykind를 변경함
-        GameObject enemy = GameManager.instance.pool.Get((int)spawnData[level].enmSpriteType);
+        GameObject enemy = GameManager.instance.pool.Get((int)enmData[level].enmSpriteType);
         enemy.transform.position = spawnPoint[Random.Range(1,spawnPoint.Length)].position;
-        enemy.GetComponent<Enemy>().Init(spawnData[level]);
+        enemy.GetComponent<Enemy>().Init(enmData[level]);
         //enemy.AddComponent
-        Debug.Log(spawnData[level].enmMaxHp);
+        Debug.Log(enmData[level].enmMaxHp);
     }
 }
 
