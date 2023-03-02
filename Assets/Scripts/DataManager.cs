@@ -61,6 +61,9 @@ public class EnemyTable
     public List<ScriptableObject> ye_TypeEnms;
     public List<ScriptableObject> rd_TypeEnms;
     public List<ScriptableObject> blk_TypeEnms;
+
+    //테이블 관리를 어떻게 하지. class에서 전체 리스트를 다시 리스트로 묶어서 단일 리스트만 내보내는 방법.
+    //아니면 지금 작성된대로 리스트를 여러 개 보내는 방법이 있는데, 뭐가 더 코딩하기 좋으려나.
 }
 
 public enum EnmSpriteType
