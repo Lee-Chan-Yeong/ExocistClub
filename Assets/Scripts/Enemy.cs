@@ -5,10 +5,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     //enemyStat에서 관리
-    public float enemySpeed;
+    public float enmSpeed;
     public float enmCurHp;
-    public float enemyMaxHp;
-    public int enmAtk;
+    public float enmMaxHp;
+    public int enmPower;
     // 추후 애니메이션 추가될 때 작업  
     //public RuntimeAnimatorController[] aniCon;
 
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rigid;
     Animator enemyAnim;
     SpriteRenderer spriter;
+    EnemyTable eData;
 
     void Awake()
     {
@@ -36,7 +37,7 @@ public class Enemy : MonoBehaviour
         }
 
         Vector2 dirvec = target.position - rigid.position;
-        Vector2 nextVec = dirvec.normalized * enemySpeed * Time.fixedDeltaTime;
+        Vector2 nextVec = dirvec.normalized * enmSpeed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
         rigid.velocity = Vector2.zero;
     }
@@ -45,16 +46,15 @@ public class Enemy : MonoBehaviour
     {
         target = GameManager.instance.player.GetComponent<Rigidbody2D>();
         isEnemyDead =false;
-        enmCurHp = enemyMaxHp;
+        enmCurHp = enmMaxHp;
     }
 
-    public void Init(EnemyTable enemyData)
+    public void Init(EnemyTable enmData)
     {
-        //enemyAnim.runtimeAnimatorController = aniCon[enemyData.spriteType]; // 적 스프라이트 제작 후 추가
-        enemySpeed = enemyData.enmSpeed;
-        enemyMaxHp = enemyData.enmMaxHp;
-        enmCurHp = enemyData.enmMaxHp;
-        enmAtk = enemyData.enmAtk;
+        //enemyAnim.runtimeAnimatorController = aniCon[enemyData.spriteType];
+        enmSpeed = enmData.enmSpeed;
+        enmMaxHp = enmData.enmMaxHp;
+        enmCurHp = enmData.enmMaxHp;
         
     }
 
@@ -62,9 +62,11 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("PlayerHit");
             Player target = collision.gameObject.GetComponent<Player>();
-            target.playerUnitStat.PlayerCurHp -= enmAtk;
-            //Debug.Log(target.playerUnitStat.PlayerCurHp);
+            target.playerUnitStat.PlayerCurHp -= enmPower;
+            Debug.Log(target.playerUnitStat.PlayerCurHp);
+            //이후 데이터매니저의 플레이어 사망 체크 함수를 호출함.
             target.checkPlayerDead();
         }
     }
@@ -75,7 +77,8 @@ public class Enemy : MonoBehaviour
         if (enmCurHp <= 0)
         {
             //경험치석 드랍
-            //적 처치 수 ++ , 플레이어가 우사기면 다른 변수에 ++
+            GameManager.kill_enm_Count++;
+            Debug.Log(GameManager.kill_enm_Count);
             gameObject.SetActive(false);
         }
     }

@@ -36,11 +36,11 @@ public class EnemySpawner : MonoBehaviour
     void EnemySpawn()
     {
         //위와 같이 index를 변경해서 enemykind를 변경함
-        GameObject enemy = GameManager.instance.pool.Get((int)enmData[level].enmSpriteType);
+        EnemyTable spawnEnm =enmData[Random.Range(0,level+1)];
+        GameObject enemy = GameManager.instance.pool.Get((int)spawnEnm.enmSpriteType);
         enemy.transform.position = spawnPoint[Random.Range(1,spawnPoint.Length)].position;
-        enemy.GetComponent<Enemy>().Init(enmData[level]);
-        //enemy.AddComponent
-        Debug.Log(enmData[level].enmMaxHp);
+        enemy.GetComponent<Enemy>().Init(spawnEnm);
+        //Debug.Log(enmData[level].enmMaxHp);
     }
 }
 
