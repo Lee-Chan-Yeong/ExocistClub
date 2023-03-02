@@ -20,7 +20,7 @@ public class PlayerStats : ScriptableObject
     public List<string> CharacterCode = new List<string>();
     public List<List<string>> Characters = new List<List<string>>();
 
-    //단일 리스트만 써서 플레이어로 보내주는 방법을 생각해보는게 빠를듯. 도무지 모르겠다 이건.
+    
     internal void UpdateStats(List<GSTU_Cell> list, string name)
     {
         if (!(CharacterCode[0] == list[0].value))

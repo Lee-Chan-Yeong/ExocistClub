@@ -177,38 +177,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &485818776
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 485818777}
-  m_Layer: 0
-  m_Name: AnglePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &485818777
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485818776}
-  m_LocalRotation: {x: -0.024548426, y: 0.016249506, z: -0.7198654, w: 0.6934892}
-  m_LocalPosition: {x: 0.589, y: -0.155, z: 0}
-  m_LocalScale: {x: 0.87142855, y: 1.056607, z: 0.87142855}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1470726244}
-  m_Father: {fileID: 140449857670989842}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -0.61, y: 3.318, z: -92.156}
 --- !u!1 &575064150
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,14 +483,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470726243}
-  m_LocalRotation: {x: -0.000011600552, y: 0.0000519948, z: -0.0009039439, w: 0.9999996}
-  m_LocalPosition: {x: -2.6880016, y: 0.3706944, z: 0.060342412}
-  m_LocalScale: {x: 1.0618998, y: 1.0619003, z: 1.0618998}
+  m_LocalRotation: {x: -0.02453372, y: 0.016271716, z: -0.720493, w: 0.69283706}
+  m_LocalPosition: {x: 1.0693268, y: 2.1714368, z: -0}
+  m_LocalScale: {x: 0.9253705, y: 1.1220108, z: 0.92536986}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 450524879}
-  m_Father: {fileID: 485818777}
-  m_RootOrder: 0
+  m_Father: {fileID: 140449857670989842}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1470726248
 SpriteRenderer:
@@ -607,7 +575,7 @@ MonoBehaviour:
   ChooseUsagie: 0
 --- !u!95 &1470726249
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -624,7 +592,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1532778264
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,16 +844,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: []
   spawnData:
-  - enemyCode: A
-    spriteType: 0
-    spawnTime: 0.7
-    enemyMaxHp: 0
-    enemySpeed: 1.5
-  - enemyCode: B
-    spriteType: 1
-    spawnTime: 0.2
-    enemyMaxHp: 0
-    enemySpeed: 2.4
+  - enmKeyNum: 
+    enmSpriteType: 0
+    enmName: 
+    enmAtk: 0
+    enmMaxHp: 0
+    enmSpeed: 0
+    enmType: 
+    ExpType: 
+    dropBoxCount: 0
+    enmDescription: 
+    enmSpawnTime: 0
+    gr_TypeEnms: []
+    blu_TypeEnms: []
+    ye_TypeEnms: []
+    rd_TypeEnms: []
+    blk_TypeEnms: []
+  - enmKeyNum: 
+    enmSpriteType: 0
+    enmName: 
+    enmAtk: 0
+    enmMaxHp: 0
+    enmSpeed: 0
+    enmType: 
+    ExpType: 
+    dropBoxCount: 0
+    enmDescription: 
+    enmSpawnTime: 0
+    gr_TypeEnms: []
+    blu_TypeEnms: []
+    ye_TypeEnms: []
+    rd_TypeEnms: []
+    blk_TypeEnms: []
 --- !u!1 &2087447316
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,7 +941,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2086176339}
-  - {fileID: 485818777}
+  - {fileID: 1470726244}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -996,8 +986,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.058072258, g: 0.6875084, b: 0.8207547, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 69dd642a581d7fa41a0b30aac8769ced, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1020,8 +1010,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: -0.2528097}
+  m_Size: {x: 1, y: 2.505623}
   m_Direction: 0
 --- !u!50 &140449857670989844
 Rigidbody2D:

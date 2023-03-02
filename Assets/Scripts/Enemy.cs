@@ -6,9 +6,9 @@ public class Enemy : MonoBehaviour
 {
     //enemyStat에서 관리
     public float enemySpeed;
-    public float enemyHp;
+    public float enmCurHp;
     public float enemyMaxHp;
-    public int enemyPower;
+    public int enmAtk;
     // 추후 애니메이션 추가될 때 작업  
     //public RuntimeAnimatorController[] aniCon;
 
@@ -25,7 +25,6 @@ public class Enemy : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
-        enemyPower = 60;
     }
 
    
@@ -46,15 +45,16 @@ public class Enemy : MonoBehaviour
     {
         target = GameManager.instance.player.GetComponent<Rigidbody2D>();
         isEnemyDead =false;
-        enemyHp = enemyMaxHp;
+        enmCurHp = enemyMaxHp;
     }
 
-    public void Init(SpawnData enemyData)
+    public void Init(EnemyTable enemyData)
     {
-        //enemyAnim.runtimeAnimatorController = aniCon[enemyData.spriteType];
-        enemySpeed = enemyData.enemySpeed;
-        enemyMaxHp = enemyData.enemyMaxHp;
-        enemyHp = enemyData.enemyMaxHp;
+        //enemyAnim.runtimeAnimatorController = aniCon[enemyData.spriteType]; // 적 스프라이트 제작 후 추가
+        enemySpeed = enemyData.enmSpeed;
+        enemyMaxHp = enemyData.enmMaxHp;
+        enmCurHp = enemyData.enmMaxHp;
+        enmAtk = enemyData.enmAtk;
         
     }
 
@@ -62,11 +62,21 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("PlayerHit");
             Player target = collision.gameObject.GetComponent<Player>();
-            target.playerUnitStat.PlayerCurHp -= enemyPower;
-            Debug.Log(target.playerUnitStat.PlayerCurHp);
+            target.playerUnitStat.PlayerCurHp -= enmAtk;
+            //Debug.Log(target.playerUnitStat.PlayerCurHp);
             target.checkPlayerDead();
+        }
+    }
+
+    public void checkEnmDead()
+    {
+        Debug.Log(enmCurHp);
+        if (enmCurHp <= 0)
+        {
+            //경험치석 드랍
+            //적 처치 수 ++ , 플레이어가 우사기면 다른 변수에 ++
+            gameObject.SetActive(false);
         }
     }
 
